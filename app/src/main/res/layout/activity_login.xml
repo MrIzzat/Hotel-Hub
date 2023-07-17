@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/blue">
+
+
+    <Button
+        android:id="@+id/signIn"
+        android:layout_width="259dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="196dp"
+        android:background="@drawable/loginbackground"
+        android:backgroundTint="#9E2F3567"
+        android:onClick="signIn"
+        android:rotationX="8"
+        android:text="@string/log_in"
+        android:textAlignment="center"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/email1"
+        android:layout_width="336dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="384dp"
+        android:backgroundTint="#00FFFFFF"
+        android:ems="10"
+        android:hint="@string/login_email"
+        android:inputType="textEmailAddress"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <EditText
+
+        android:id="@+id/password"
+        android:layout_width="335dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="284dp"
+        android:backgroundTint="#00FFFFFF"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="320dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="16dp"
+        android:background="#2578B8CC"
+        android:text="@string/welcome2"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="213dp"
+        android:layout_height="128dp"
+        android:layout_marginStart="99dp"
+        android:layout_marginTop="103dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/avatar" />
+
+    <Button
+        android:id="@+id/signUpBtn"
+        android:layout_width="133dp"
+        android:layout_height="55dp"
+        android:background="@drawable/loginbackground"
+        android:layout_marginStart="96dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#367D8F"
+        android:bottomLeftRadius="15dp"
+        android:bottomRightRadius="15dp"
+        android:onClick="signUpClk"
+        android:text="@string/sign_up"
+        android:topLeftRadius="15dp"
+        android:topRightRadius="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="92dp"
+        android:layout_height="60dp"
+
+        android:layout_marginStart="7dp"
+        android:layout_marginBottom="14dp"
+        android:background="#00FFFFFF"
+        android:backgroundTint="#090606"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="?attr/actionModePasteDrawable" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="33dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginBottom="32dp"
+        android:background="#002B94C5"
+        android:text="@string/or"
+        android:textAlignment="center"
+        android:textColor="#F4F1F1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <CheckBox
+        android:id="@+id/chkRemember"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="37dp"
+        android:layout_marginEnd="250dp"
+        android:layout_marginBottom="120dp"
+        android:text="@string/remember_me"
+        android:textColor="@color/black"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.29"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Hotel Reservation</string>
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+    <string name="welcome">Welcome</string>
+    <string name="izzat_name">Izzat Almustafa</string>
+    <string name="izzat_desc">Hello! I am Izzat also known as MrIzzat. I made the main menu, navigation, hotel menu room menu, settings and about us screens.</string>
+    <string name="husam_desc">Hello! I am Husam also known as MrHusam. I made the Splash screen, Register, Log in</string>
+    <string name="husam_name">Husam The Best</string>
+    <string name="yossef_desc">Hello! I am yossef. I made everything in the reservation forms.</string>
+    <string name="yossef_name">Yossef BodyBuilder</string>
+    <string name="first_name">First Name:</string>
+    <string name="last_name">Last Name:</string>
+    <string name="email">Email:</string>
+    <string name="address">Address:</string>
+    <string name="phone_number">Phone Number:</string>
+    <string name="change_password">Change Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="update">Update</string>
+    <string name="new_password">New Password:</string>
+    <string name="confirm_new_password">Confirm New Password:</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="log_in">Log In</string>
+    <string name="login_email">Email</string>
+    <string name="password">Password</string>
+    <string name="welcome2">WELCOME</string>
+    <string name="sign_up">sign up</string>
+    <string name="or">OR</string>
+    <string name="no_rooms_available">NO ROOMS AVAILABLE</string>
+    <string name="no_reserved_rooms">NO RESERVED ROOMS</string>
+    <array name="settings_options">
+        <item>About Us</item>
+    </array>
+
+
+</resources>

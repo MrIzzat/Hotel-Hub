@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".About_Us">
+
+    <ScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <com.google.android.material.imageview.ShapeableImageView
+
+                android:background="@drawable/border_image_husam"
+                app:shapeAppearanceOverlay="@style/circleImageView"
+                android:layout_width="269dp"
+                android:layout_height="250dp"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/pic_of_yossef"/>
+            <TextView
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/yossef_name"
+                android:textSize="40dp"/>
+            <TextView
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/yossef_desc"
+                android:textSize="16dp"/>
+            <com.google.android.material.imageview.ShapeableImageView
+
+                android:background="@drawable/border_image_husam"
+                app:shapeAppearanceOverlay="@style/circleImageView"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/pic_of_husam"/>
+            <TextView
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/husam_name"
+                android:textSize="40dp"/>
+            <TextView
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/husam_desc"
+                android:textSize="16dp"/>
+            <com.google.android.material.imageview.ShapeableImageView
+
+                android:background="@drawable/border_image_izzat"
+                app:shapeAppearanceOverlay="@style/circleImageView"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/pic_of_me"/>
+            <TextView
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/izzat_name"
+                android:textSize="40dp"/>
+            <TextView
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/izzat_desc"
+                android:textSize="16dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

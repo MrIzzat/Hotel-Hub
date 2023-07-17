@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Change_user_info">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="@string/first_name"
+                />
+
+            <EditText
+                android:hint="No First Name"
+                android:id="@+id/edtFirstName"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="40dp"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                />
+
+            <TextView
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="@string/last_name"
+                />
+
+            <EditText
+                android:hint="No Last Name"
+                android:id="@+id/edtLastName"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="40dp"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                />
+
+            <TextView
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="@string/email"
+                />
+
+            <EditText
+                android:hint="No Email"
+                android:id="@+id/edtEmail"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="40dp"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                />
+            <TextView
+
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="@string/phone_number"
+                />
+
+            <EditText
+                android:id="@+id/edtPhoneNumber"
+                android:hint="No Phone Number"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="40dp"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                />
+
+            <Button
+                android:id="@+id/btnUpdate"
+                android:layout_marginTop="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/update"
+                android:layout_gravity="center"
+                />
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

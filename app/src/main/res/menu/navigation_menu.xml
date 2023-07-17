@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="HardcodedText">
+
+
+    <item
+        android:icon="@drawable/change_username"
+        android:id="@+id/nav_username"
+        android:title="Personal Information" />
+
+    <item
+        android:icon="@drawable/change_password_icon"
+        android:id="@+id/nav_password"
+        android:title="Change Password" />
+
+    <item
+        android:id="@+id/nav_settings"
+        android:icon="@drawable/settings"
+        android:title="Settings" />
+
+    <item
+        android:id="@+id/nav_logout"
+        android:icon="@drawable/logout"
+        android:title="Logout"
+       />
+
+</menu>

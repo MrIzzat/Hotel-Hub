@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1068976778069",
+    "project_id": "hotel-reservation-aa000",
+    "storage_bucket": "hotel-reservation-aa000.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1068976778069:android:29c3b5cd0d5c02f5715ddc",
+        "android_client_info": {
+          "package_name": "com.example.hotel_reservation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1068976778069-1hq46kj3a77mfvkh32u30oqpd1n9hgov.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACYEZK6objOg9kcEknRGj6aaBfT0kchbw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1068976778069-1hq46kj3a77mfvkh32u30oqpd1n9hgov.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
