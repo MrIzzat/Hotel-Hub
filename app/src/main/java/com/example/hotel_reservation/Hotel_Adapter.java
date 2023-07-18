@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -43,6 +44,7 @@ public class Hotel_Adapter extends RecyclerView.Adapter<Hotel_Adapter.ViewHolder
         Hotel model = hotelArrayList.get(position);
         holder.txtHotelName.setText(model.getName());
         Picasso.with(context).load(model.getImg()).into(holder.imgHotel);
+        holder.ratingHotel.setRating((float)model.getRating());
       //  holder.imgHotel.setImageResource(model.getImg());
     }
 
@@ -57,13 +59,13 @@ public class Hotel_Adapter extends RecyclerView.Adapter<Hotel_Adapter.ViewHolder
 
         private final ImageView imgHotel;
         private final TextView txtHotelName;
-
+        private final RatingBar ratingHotel;
 
         public ViewHolder(@NonNull View itemView, RecyclerViewInterface recyclerViewInterface)  {
             super(itemView);
             imgHotel = itemView.findViewById(R.id.imgHotel);
             txtHotelName = itemView.findViewById(R.id.txthotelName);
-
+            ratingHotel = itemView.findViewById(R.id.ratingHotel);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

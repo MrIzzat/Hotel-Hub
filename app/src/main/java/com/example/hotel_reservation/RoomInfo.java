@@ -41,7 +41,7 @@ public class RoomInfo extends AppCompatActivity {
         currRoom = gson.fromJson(str, Room.class);
 
         txtRoomDesc.setText(currRoom.getDesc());
-        txtRoomName.setText(currRoom.getName());
+        txtRoomName.setText("Room "+ currRoom.getName());
         txtRoomPrice.setText("Price Per Day: "+currRoom.getPrice());
         Picasso.with(this).load(currRoom.getImg()).into(imgRoom);
 

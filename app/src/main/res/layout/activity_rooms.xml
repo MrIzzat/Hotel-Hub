@@ -9,11 +9,15 @@
 
 
     <TextView
+        android:padding="8dp"
+        android:textStyle="bold"
+        android:layout_margin="5dp"
+        android:background="@drawable/border_textview"
         android:id="@+id/txtHotelDesc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/textview"
-        android:textColor="@color/end_main_menu_gradient"
+        android:textColor="#00C7DA"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

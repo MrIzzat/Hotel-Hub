@@ -33,6 +33,7 @@ public class Cancel_Reservation extends AppCompatActivity {
     private ImageView imgRoom2;
     private TextView txtRoomDesc2;
     private TextView txtRoomPrice2;
+    private TextView txtResDate;
     private Button btnCancel;
     private SharedPreferences prefs;
     private SharedPreferences.Editor editor;
@@ -64,8 +65,11 @@ public class Cancel_Reservation extends AppCompatActivity {
             }
         }
         long days =  daysBetweenDates(currRes.getStartDateStr(),currRes.getEndDateStr())+1;
-        String roomInfo ="Hotel: "+ currRes.getHotel()+"\n\nfrom: "+currRes.getStartDateStr()+"\nTo: "+currRes.getEndDateStr()+"\nDays: "+days;
+        String roomInfo ="Hotel: "+ currRes.getHotel();
+        String roomDate ="From: "+currRes.getStartDateStr()+"\nTo: "+currRes.getEndDateStr()+"\nDays: "+days;
 
+
+        txtResDate.setText(roomDate);
         txtRoomDesc2.setText(roomInfo);
         txtRoomName2.setText("Room "+currRoom.getName());
         txtRoomPrice2.setText("Total amount: " + currRes.getPayAmount());
@@ -157,5 +161,6 @@ public class Cancel_Reservation extends AppCompatActivity {
         imgRoom2 = findViewById(R.id.imgRoom2);
         btnCancel = findViewById(R.id.btnReserve2);
         txtRoomPrice2 = findViewById(R.id.txtRoomPrice2);
+        txtResDate = findViewById(R.id.txtResDate);
     }
 }

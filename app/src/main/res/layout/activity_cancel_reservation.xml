@@ -21,12 +21,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TextView
         android:id="@+id/txtRoomDesc2"
-        android:layout_width="371dp"
-        android:layout_height="161dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="184dp"
+        android:layout_width="382dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="288dp"
+        android:background="@drawable/border_textview"
+        android:padding="8dp"
         android:text="@string/textview"
         android:textColor="@color/end_main_menu_gradient"
         android:textSize="24dp"
@@ -55,12 +58,28 @@
 
     <TextView
         android:id="@+id/txtRoomPrice2"
-        android:layout_width="363dp"
+        android:layout_width="380dp"
         android:layout_height="64dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="104dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="116dp"
+        android:background="@drawable/border_textview"
+        android:padding="8dp"
         android:text="@string/textview"
         android:textColor="@color/start_main_menu_gradient"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txtResDate"
+        android:layout_width="382dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="192dp"
+        android:background="@drawable/border_textview"
+        android:padding="8dp"
+        android:text="@string/textview"
+        android:textColor="@color/end_main_menu_gradient"
         android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

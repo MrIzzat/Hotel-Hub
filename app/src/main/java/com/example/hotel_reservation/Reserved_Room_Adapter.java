@@ -42,7 +42,7 @@ public class Reserved_Room_Adapter extends RecyclerView.Adapter<Reserved_Room_Ad
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // to set data to textview and imageview of each card layout
         Room model = roomArrayList.get(position);
-        holder.txtRoomName.setText(model.getName());
+        holder.txtRoomName.setText("Room "+model.getName());
         holder.txtRoomInfo.setText(model.getHotel());
         Picasso.with(context).load(model.getImg()).into(holder.imgRoom);
 
