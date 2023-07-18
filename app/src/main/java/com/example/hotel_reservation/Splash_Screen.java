@@ -2,6 +2,7 @@ package com.example.hotel_reservation;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.AnimatorSet;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,20 +10,24 @@ import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.view.WindowManager;
 import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hotel_reservation.DatabaseAccess.HotelDA;
+import com.example.hotel_reservation.DatabaseAccess.ReservationDA;
 import com.example.hotel_reservation.DatabaseAccess.RoomDA;
+
+import org.checkerframework.checker.units.qual.A;
 
 public class Splash_Screen extends AppCompatActivity {
 
     private SharedPreferences prefs;
     private SharedPreferences.Editor editor;
 
-    private Animation top, bottom;
+    private Animation top, bottom,spin;
     private ImageView img;
 
     @Override
@@ -37,8 +42,19 @@ public class Splash_Screen extends AppCompatActivity {
 
         top = AnimationUtils.loadAnimation(this, R.anim.top_animation);
         bottom = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
+        spin = AnimationUtils.loadAnimation(this,R.anim.spin_animation);
 
-        img.setAnimation(top);
+
+
+        AnimationSet s = new AnimationSet(false);
+        s.addAnimation(top);
+        s.addAnimation(spin);
+        img.setAnimation(s);
+
+//        AnimatorSet animset = new AnimatorSet();
+//        animset.playSequentially(top,bottom);
+
+
 
         // Check shared preferences for login status
         setupPrefs();
@@ -50,10 +66,11 @@ public class Splash_Screen extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (isLoggedIn==true) {
+                if (isLoggedIn) {
                     // User is logged in, go to MainActivity2
                     Intent intent = new Intent(Splash_Screen.this, MainMenu.class);
                     startActivity(intent);
+
                 } else {
                     // User is not logged in, go to LoginActivity
                     Intent intent = new Intent(Splash_Screen.this, Login.class);
@@ -65,6 +82,7 @@ public class Splash_Screen extends AppCompatActivity {
 
         new RoomDA().setupAllRooms(this);
         new HotelDA().setupAllHotels(this);
+
     }
     private void setupPrefs(){
         prefs = PreferenceManager.getDefaultSharedPreferences(this);

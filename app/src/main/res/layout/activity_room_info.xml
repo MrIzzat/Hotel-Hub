@@ -4,17 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_main_menu"
     tools:context=".RoomInfo">
 
     <TextView
+
         android:id="@+id/txtRoomName"
         android:layout_width="214dp"
         android:layout_height="66dp"
         android:layout_marginStart="96dp"
         android:layout_marginTop="300dp"
         android:gravity="center"
-        android:text="TextView"
-        android:textColor="@color/black"
+        android:text="@string/textview"
+        android:textColor="@color/end_main_menu_gradient"
         android:textSize="50dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,8 +28,8 @@
         android:layout_height="136dp"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="199dp"
-        android:text="texVIEW"
-        android:textColor="@color/black"
+        android:text="@string/textview"
+        android:textColor="@color/end_main_menu_gradient"
         android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -38,7 +40,7 @@
         android:layout_height="76dp"
         android:layout_marginStart="127dp"
         android:layout_marginBottom="16dp"
-        android:text="Reserve"
+        android:text="@string/reserve"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -58,8 +60,8 @@
         android:layout_height="64dp"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="118dp"
-        android:text="TextView"
-        android:textColor="@color/black"
+        android:text="@string/textview"
+        android:textColor="@color/start_main_menu_gradient"
         android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

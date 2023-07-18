@@ -107,7 +107,8 @@ public class Registration extends AppCompatActivity {
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void aVoid) {
-                                                Toast.makeText(Registration.this, firstNameValue+" Aded succesfuly", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(Registration.this, "Successfully Registered", Toast.LENGTH_SHORT).show();
+                                                finish();
                                             }
                                         })
                                         .addOnFailureListener(new OnFailureListener() {

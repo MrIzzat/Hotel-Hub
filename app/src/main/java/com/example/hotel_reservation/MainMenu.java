@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.example.hotel_reservation.DatabaseAccess.HotelDA;
+import com.example.hotel_reservation.DatabaseAccess.ReservationDA;
 import com.example.hotel_reservation.models.Hotel;
 import com.example.hotel_reservation.models.Room;
 import com.example.hotel_reservation.models.User;
@@ -38,7 +40,7 @@ public class MainMenu extends AppCompatActivity implements
 
     private RecyclerView recHotel;
 
-    static User LoggedUser;
+    public static User LoggedUser;
     private SharedPreferences prefs;
     private SharedPreferences.Editor editor;
     private Gson gson = new Gson();
@@ -55,7 +57,7 @@ public class MainMenu extends AppCompatActivity implements
         setContentView(R.layout.activity_main_menu);
 
         setupViews();
-        setNavHeader();
+
 
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
@@ -71,28 +73,34 @@ public class MainMenu extends AppCompatActivity implements
         addHotels();
         setupPrefs();
         checkPrefs();
+        getReservations();
+        setNavHeader();
     }
 
-    private void setupPrefs(){
+    private void getReservations() {
+        ReservationDA resda = new ReservationDA();
+        Log.d("LoggedUSER", LoggedUser.getEmail());
+        resda.setupReservations(this, LoggedUser);
+    }
+
+    private void setupPrefs() {
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         editor = prefs.edit();
     }
+
     private void checkPrefs() {
-        flag = prefs.getBoolean("isLoggedIn", false);
 
-        if (flag) {
+        String str = prefs.getString("USER", "");
+        User user = gson.fromJson(str, User.class);
 
-            String str = prefs.getString("USER","");
-            User user = gson.fromJson(str,User.class);
+        String firstName = user.getFirstName();
+        String lastName = user.getLastName();
+        String email = user.getEmail();
+        String phoneNumber = user.getTelephone();
 
-            String firstName = user.getFirstName();
-            String lastName = user.getLastName();
-            String email = user.getEmail();
-            String phoneNumber = user.getTelephone();
+        LoggedUser = new User(firstName, lastName, email, phoneNumber);
 
-            LoggedUser = new User(firstName,lastName,email,phoneNumber);
 
-        }
     }
 
     private void addHotels() {
@@ -100,13 +108,12 @@ public class MainMenu extends AppCompatActivity implements
 
         hotels = hotelda.getHotels();
 
-        Hotel_Adapter Hadapter = new Hotel_Adapter(this,hotels,this);
+        Hotel_Adapter Hadapter = new Hotel_Adapter(this, hotels, this);
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
 
         recHotel.setLayoutManager(linearLayoutManager);
         recHotel.setAdapter(Hadapter);
-
 
 
     }
@@ -119,20 +126,20 @@ public class MainMenu extends AppCompatActivity implements
         if (id == R.id.nav_settings) {
             Intent intent = new Intent(MainMenu.this, Settings.class);
             startActivity(intent);
-        }else{
+        } else {
             if (id == R.id.nav_username) {
                 Intent intent = new Intent(MainMenu.this, Change_user_info.class);
                 startActivity(intent);
-            }else{
+            } else {
                 if (id == R.id.nav_password) {
                     Intent intent = new Intent(MainMenu.this, Change_password.class);
                     startActivity(intent);
-                }else{
+                } else {
                     if (id == R.id.nav_logout) {
 
-                       // LoggedUser = null;
+                        // LoggedUser = null;
 
-                        editor.putBoolean("isLoggedIn",false);
+                        editor.putBoolean("isLoggedIn", false);
                         editor.putString("USER", "");
                         editor.commit();
 
@@ -145,6 +152,7 @@ public class MainMenu extends AppCompatActivity implements
         }
         return true;
     }
+
     private void setupViews() {
         drawerLayout = findViewById(R.id.my_drawer_layout);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
@@ -153,18 +161,19 @@ public class MainMenu extends AppCompatActivity implements
 
     }
 
-    private void setNavHeader(){
+    private void setNavHeader() {
         View headerView = mainNavBar.getHeaderView(0);
         TextView headerUsername = (TextView) headerView.findViewById(R.id.header_username);
-        headerUsername.setText("MrIzzat");
+        headerUsername.setText(LoggedUser.getFirstName());
     }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
 
             return true;
-        }else{
+        } else {
 
         }
 
@@ -181,7 +190,7 @@ public class MainMenu extends AppCompatActivity implements
         editor.putString("HOTEL", hotelString);
         editor.commit();
 
-        Intent intent = new Intent(MainMenu.this,Rooms.class);
+        Intent intent = new Intent(MainMenu.this, Rooms.class);
         startActivity(intent);
 
 

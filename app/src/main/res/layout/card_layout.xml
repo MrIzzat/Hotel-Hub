@@ -10,19 +10,22 @@
     app:cardElevation="8dp"
     app:cardMaxElevation="10dp"
     app:cardPreventCornerOverlap="true"
+
     app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
+        android:background="@drawable/gradient_main_menu"
         android:layout_height="351dp">
 
         <TextView
+
             android:id="@+id/txthotelName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:text="Caramel Hotel"
-            android:textColor="@color/black"
+            android:text="@string/caramel_hotel"
+            android:textColor="@color/start_main_menu_gradient"
             android:textSize="24dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"

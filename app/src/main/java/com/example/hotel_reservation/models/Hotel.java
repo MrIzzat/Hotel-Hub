@@ -9,14 +9,32 @@ public class Hotel {
 
     private String img;
 
+    private String desc;
     public Hotel(){
 
     }
 
-    public Hotel(String name, String img) {
+    public Hotel(String name, String img,String desc) {
         this.name = name;
         this.img = img;
+        this.desc = desc;
         rooms = new ArrayList<Room>();
+    }
+
+    public ArrayList<Room> getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(ArrayList<Room> rooms) {
+        this.rooms = rooms;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     public String getName() {

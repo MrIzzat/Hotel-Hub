@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 import com.example.hotel_reservation.DatabaseAccess.UserDA;
@@ -20,7 +21,6 @@ public class Change_user_info extends AppCompatActivity {
 
     private EditText edtFirstName;
     private EditText edtLastName;
-    private EditText edtEmail;
     private EditText edtPhoneNumber;
     private Button btnUpdate;
 
@@ -41,13 +41,14 @@ public class Change_user_info extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_user_info);
 
+        userda=new UserDA();
+
         setupViews();
 
         User LoggedUser = MainMenu.LoggedUser;
 
         edtFirstName.setText(LoggedUser.getFirstName());
         edtLastName.setText(LoggedUser.getLastName());
-        edtEmail.setText(LoggedUser.getEmail());
         edtPhoneNumber.setText(LoggedUser.getTelephone());
 
 
@@ -57,10 +58,17 @@ public class Change_user_info extends AppCompatActivity {
             public void onClick(View v) {
                 String newFirstName = edtFirstName.getText().toString();
                 String newLastName = edtLastName.getText().toString();
-                String newEmailName = edtEmail.getText().toString();
                 String newPhoneNumber = edtPhoneNumber.getText().toString();
 
-                userda.changeUserInfo(newFirstName,newLastName,newEmailName,newPhoneNumber);
+                if(newFirstName.equals("") || newLastName.equals("")
+                        || newPhoneNumber.equals("")){
+                    Toast.makeText(Change_user_info.this, "Make Sure to Fill in all Fields", Toast.LENGTH_SHORT).show();
+                }else{
+                    userda.updateUser(Change_user_info.this ,
+                            newFirstName,newLastName,newPhoneNumber,LoggedUser.getEmail());
+                }
+
+
             }
         });
     }
@@ -70,7 +78,6 @@ public class Change_user_info extends AppCompatActivity {
 
         edtFirstName = findViewById(R.id.edtFirstName);
         edtLastName = findViewById(R.id.edtLastName);
-        edtEmail = findViewById(R.id.edtEmail);
         edtPhoneNumber = findViewById(R.id.edtPhoneNumber);
         btnUpdate = findViewById(R.id.btnUpdate);
     }

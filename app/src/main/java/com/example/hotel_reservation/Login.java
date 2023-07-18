@@ -51,10 +51,11 @@ public class Login extends AppCompatActivity {
 
     }
 
-    private void setupPrefs(){
+    private void setupPrefs() {
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         editor = prefs.edit();
     }
+
     private void setupViews() {
         signIn = findViewById(R.id.signIn);
         signUp = findViewById(R.id.signUpBtn);
@@ -89,9 +90,9 @@ public class Login extends AppCompatActivity {
                             String FirstName = document.getString("first_name");
                             String LastName = document.getString("last_name");
 
-                            User d = new User(FirstName,LastName,email,storedPhone);
+                            User d = new User(FirstName, LastName, email, storedPhone);
 
-                            Log.d("USERNAME",d.getFirstName());
+                            Log.d("USERNAME", d.getFirstName());
 
                             if (password.equals(storedPassword)) {
                                 Toast.makeText(Login.this, "Sign-in successful", Toast.LENGTH_SHORT).show();
@@ -102,12 +103,13 @@ public class Login extends AppCompatActivity {
 //                                editor.putString("password", password);
 //                                editor.putString("phoneNumber", storedPhone);
 
-                                if(chkRemember.isChecked()){
+                                if (chkRemember.isChecked()) {
                                     editor.putBoolean("isLoggedIn", true);
+                                }
 
-                                    // Create JSON element with user information
-                                    Gson gson = new Gson();
-                                    String user = gson.toJson(d);
+                                // Create JSON element with user information
+                                Gson gson = new Gson();
+                                String user = gson.toJson(d);
 //                                    try {
 //                                        userJson.put("firstName", document.getString("firstName"));
 //                                        userJson.put("lastName", document.getString("lastName"));
@@ -118,13 +120,10 @@ public class Login extends AppCompatActivity {
 //                                        e.printStackTrace();
 //                                    }
 
-                                    // Store the JSON element as a string in shared preferences
-                                    editor.putString("USER", user);
+                                // Store the JSON element as a string in shared preferences
+                                editor.putString("USER", user);
 
-                                    editor.commit();
-
-                                }
-
+                                editor.commit();
 
 
                                 // Redirect the user to the desired activity (e.g., MainMenu)

@@ -5,6 +5,7 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="colorPrimary">#001ABD</item>
         <item name="colorPrimaryDark">#00138F</item>
+        <item name="android:textColorHint">@color/end_main_menu_gradient</item>
     </style>
 
 </resources>

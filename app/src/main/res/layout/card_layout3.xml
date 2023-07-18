@@ -15,31 +15,36 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="363dp"
         android:layout_height="236dp"
+        android:background="@drawable/gradient_main_menu"
         tools:layout_editor_absoluteX="13dp"
         tools:layout_editor_absoluteY="17dp">
 
         <TextView
+
             android:id="@+id/txtRoomName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="201dp"
-            android:textColor="@color/black"
-            android:text="TextView"
+            android:text="@string/textview"
+            android:textColor="@color/start_main_menu_gradient"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+
             android:id="@+id/txtRoomInfo"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="240dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="17dp"
-            android:text="Caramel Hotel"
-            android:textColor="@color/black"
+            android:gravity="center"
+            android:text="@string/caramel_hotel"
+            android:textColor="@color/end_main_menu_gradient"
+
             android:textSize="16dp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView

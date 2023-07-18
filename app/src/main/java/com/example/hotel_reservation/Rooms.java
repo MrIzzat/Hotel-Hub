@@ -23,6 +23,8 @@ import java.util.ArrayList;
 public class Rooms extends AppCompatActivity implements RecyclerViewInterface {
 
     private RecyclerView recRooms;
+    private TextView txtNoRooms;
+    private TextView txtHotelDesc;
     private Hotel currHotel;
     private ArrayList<Room> rooms = new ArrayList<Room>();
 
@@ -30,7 +32,7 @@ public class Rooms extends AppCompatActivity implements RecyclerViewInterface {
     private SharedPreferences.Editor editor;
     private Gson gson = new Gson();
     private RoomDA roomda;
-    private TextView txtNoRooms;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,13 +48,16 @@ public class Rooms extends AppCompatActivity implements RecyclerViewInterface {
         getSupportActionBar().setTitle(currHotel.getName());
         Toast.makeText(Rooms.this, currHotel.getName(), Toast.LENGTH_SHORT).show();
 
+
+
         roomda = new RoomDA();
 
 
         setupViews();
+
+        txtHotelDesc.setText(currHotel.getDesc());
         addRooms();
 
-        Log.d("TES2T", "TEST2");
     }
 
     private void setupSharedPrefs() {
@@ -96,6 +101,7 @@ public class Rooms extends AppCompatActivity implements RecyclerViewInterface {
     private void setupViews() {
         recRooms = findViewById(R.id.recRooms);
         txtNoRooms = findViewById(R.id.txtNoRooom);
+        txtHotelDesc = findViewById(R.id.txtHotelDesc);
 
     }
 

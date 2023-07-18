@@ -4,25 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_main_menu"
     tools:context=".Rooms">
+
+
+    <TextView
+        android:id="@+id/txtHotelDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/textview"
+        android:textColor="@color/end_main_menu_gradient"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recRooms"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-16dp" />
 
     <TextView
-        android:gravity="center"
         android:id="@+id/txtNoRooom"
         android:layout_width="380dp"
         android:layout_height="250dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="226dp"
+        android:gravity="center"
         android:text="@string/no_rooms_available"
-        android:visibility="gone"
+        android:textColor="@color/black"
         android:textSize="70dp"
         android:textStyle="bold"
-        android:textColor="@color/black"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

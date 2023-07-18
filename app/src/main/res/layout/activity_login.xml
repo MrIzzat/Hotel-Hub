@@ -24,6 +24,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
+        android:textColor="@color/end_main_menu_gradient"
         android:id="@+id/email1"
         android:layout_width="336dp"
         android:layout_height="66dp"
@@ -39,7 +40,7 @@
 
 
     <EditText
-
+        android:textColor="@color/end_main_menu_gradient"
         android:id="@+id/password"
         android:layout_width="335dp"
         android:layout_height="59dp"
@@ -54,6 +55,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
+        android:textColor="@color/end_main_menu_gradient"
         android:id="@+id/welcome"
         android:layout_width="320dp"
         android:layout_height="59dp"
@@ -120,6 +122,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <CheckBox
+
         android:id="@+id/chkRemember"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -127,7 +130,7 @@
         android:layout_marginEnd="250dp"
         android:layout_marginBottom="120dp"
         android:text="@string/remember_me"
-        android:textColor="@color/black"
+        android:textColor="@color/start_main_menu_gradient"
         android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
