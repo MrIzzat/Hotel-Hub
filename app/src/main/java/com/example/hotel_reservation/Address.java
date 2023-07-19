@@ -84,16 +84,16 @@ public class Address extends AppCompatActivity {
             String town = townTxt.getText().toString().trim();
             String street = streetTxt.getText().toString().trim();
 
-
+            // Update the reservation object with the new data
             reservation.setCity(city);
             reservation.setTown(town);
             reservation.setStreet(street);
 
-            // Convert the Reservation object to a JSON string using Gson
+            // Convert the updated Reservation object to a JSON string using Gson
             Gson gson2 = new Gson();
             String reservationJson2 = gson2.toJson(reservation);
 
-            // Pass the Reservation object as an extra to the next activity
+            // Pass the updated Reservation object as an extra to the previous activity (Personal)
             Intent intent = new Intent(Address.this, Personal.class);
             intent.putExtra("reservation", reservationJson2);
             startActivity(intent);

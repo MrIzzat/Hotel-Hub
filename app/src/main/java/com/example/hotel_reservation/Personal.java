@@ -41,15 +41,17 @@ public class Personal extends AppCompatActivity {
         setContentView(R.layout.activity_personal);
 
         connect();
-        fill();
+
         String reservationJson = getIntent().getStringExtra("reservation");
         Gson gson = new Gson();
         if (reservationJson != null && !reservationJson.isEmpty()) {
             reservation = gson.fromJson(reservationJson, Reservation.class);
+            fill();
+
         } else {
             reservation = new Reservation();
-           fNameEdtTxt.setText(MainMenu.LoggedUser.getFirstName());
-           lNameEdtTxt.setText(MainMenu.LoggedUser.getLastName());
+            fNameEdtTxt.setText(MainMenu.LoggedUser.getFirstName());
+            lNameEdtTxt.setText(MainMenu.LoggedUser.getLastName());
         }
 
 
@@ -128,6 +130,17 @@ public class Personal extends AppCompatActivity {
             fNameEdtTxt.setText(reservation.getFirstName());
             lNameEdtTxt.setText(reservation.getLastName());
             numberOfPeople.setText(String.valueOf(reservation.getNumberOfPeople()));
+
+            if(reservation.getNumberOfPeople() == 1)
+                removeBtn.setEnabled(false);
+            else
+                removeBtn.setEnabled(true);
+
+            if(reservation.getNumberOfPeople() == 6)
+                addBtn.setEnabled(false);
+            else
+                addBtn.setEnabled(true);
+
             startDateTv.setText(reservation.getStartDateStr());
             endDateTv.setText(reservation.getEndDateStr());
         }
