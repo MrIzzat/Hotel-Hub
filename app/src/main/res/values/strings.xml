@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hotel Reservation</string>
+    <string name="app_name">Hotel Hub</string>
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
     <string name="welcome">Welcome</string>
