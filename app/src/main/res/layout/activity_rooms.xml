@@ -12,7 +12,7 @@
         android:padding="8dp"
         android:textStyle="bold"
         android:layout_margin="5dp"
-        android:background="@drawable/border_textview"
+        android:background="@drawable/border_textview2"
         android:id="@+id/txtHotelDesc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

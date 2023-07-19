@@ -47,6 +47,7 @@ public class RoomInfo extends AppCompatActivity {
 
         if(currRoom.isReserved()){
             btnReserve.setEnabled(false);
+            btnReserve.setText("Reserved");
         }
 
         btnReserve.setOnClickListener(new View.OnClickListener() {

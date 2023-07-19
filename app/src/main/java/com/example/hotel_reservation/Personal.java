@@ -40,17 +40,18 @@ public class Personal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal);
 
+        connect();
+        fill();
         String reservationJson = getIntent().getStringExtra("reservation");
         Gson gson = new Gson();
         if (reservationJson != null && !reservationJson.isEmpty()) {
             reservation = gson.fromJson(reservationJson, Reservation.class);
         } else {
             reservation = new Reservation();
+           fNameEdtTxt.setText(MainMenu.LoggedUser.getFirstName());
+           lNameEdtTxt.setText(MainMenu.LoggedUser.getLastName());
         }
 
-
-        connect();
-        fill();
 
         progressControl = new ProgressControl(progressBar, progress20, progress40, progress60, progress80);
 

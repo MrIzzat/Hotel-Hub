@@ -13,7 +13,7 @@
     app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="363dp"
+        android:layout_width="match_parent"
         android:layout_height="236dp"
         android:background="@drawable/gradient_main_menu"
         tools:layout_editor_absoluteX="13dp"
