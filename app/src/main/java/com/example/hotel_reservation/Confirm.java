@@ -2,8 +2,11 @@ package com.example.hotel_reservation;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -20,7 +23,11 @@ import com.example.hotel_reservation.models.Reservation;
 import com.example.hotel_reservation.models.Room;
 import com.google.gson.Gson;
 
+import java.net.InetAddress;
+
 public class Confirm extends AppCompatActivity {
+
+    private boolean flag;
     Reservation reservation;
 
     private ProgressBar progressBar;
@@ -40,7 +47,19 @@ public class Confirm extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm);
+
+
         setupSharedPrefs();
+
+        Handler handler = new Handler();
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                flag = isInternetAvailable();
+            }
+        },200);
+
 
         String reservationJson = getIntent().getStringExtra("reservation");
         Gson gson = new Gson();
@@ -74,32 +93,41 @@ public class Confirm extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if(flag){
+                    reservation.setUser(MainMenu.LoggedUser.getEmail());
+                    RoomDA roomDa = new RoomDA();
+                    roomDa.reserveRoom(Confirm.this,currRoom,MainMenu.LoggedUser,reservation);
 
-                reservation.setUser(MainMenu.LoggedUser.getEmail());
-                RoomDA roomDa = new RoomDA();
-                roomDa.reserveRoom(Confirm.this,currRoom,MainMenu.LoggedUser,reservation);
 
-                Handler handler = new Handler();
 
-                Toast.makeText(Confirm.this, "Reserving....", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Confirm.this, "Reserving....", Toast.LENGTH_SHORT).show();
 
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(Confirm.this, "Going Back to Main Menu", Toast.LENGTH_SHORT).show();
-                    }
-                },2000);
 
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        roomDa.setupAllRooms(Confirm.this);
-                        new ReservationDA().setupReservations(Confirm.this,MainMenu.LoggedUser);
-                        Intent intent = new Intent(Confirm.this, MainMenu.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                },5000);
+
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(Confirm.this, "Going Back to Main Menu", Toast.LENGTH_SHORT).show();
+                        }
+                    },2000);
+
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            roomDa.setupAllRooms(Confirm.this);
+                            new ReservationDA().setupReservations(Confirm.this,MainMenu.LoggedUser);
+                            Intent intent = new Intent(Confirm.this, MainMenu.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    },5000);
+
+                }else{
+                    Toast.makeText(Confirm.this, "Check Internet Connection", Toast.LENGTH_SHORT).show();
+                }
+
+
+
 
 
             }
@@ -142,4 +170,12 @@ public class Confirm extends AppCompatActivity {
         finishBtn = findViewById(R.id.finishBtn);
         backBtn = findViewById(R.id.backBtn);
     }
+
+    public boolean isInternetAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager != null ? connectivityManager.getActiveNetworkInfo() : null;
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
 }

@@ -9,10 +9,14 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 
 
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +24,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,11 +41,12 @@ public class Registration extends AppCompatActivity {
     private EditText confirm_password;
     private TextView error;
 
+    private boolean flag;
 
-    private static  final String firstName="First Name";
-    private static  final String lastName="Last Name";
-    private static final  String email ="Email";
-    private static final String password="Password";
+    private static final String firstName = "First Name";
+    private static final String lastName = "Last Name";
+    private static final String email = "Email";
+    private static final String password = "Password";
 
 
     @Override
@@ -48,22 +54,23 @@ public class Registration extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
-        signUp=findViewById(R.id.signIn);
-        first_name=findViewById(R.id.email1);
-        last_name=findViewById(R.id.lastName2);
-        email_=findViewById(R.id.email);
-        password_=findViewById(R.id.password);
-        confirm_password=findViewById(R.id.password2);
-        error=findViewById(R.id.errorM);
-        phoneNumber_=findViewById(R.id.phoneNumber);
+        signUp = findViewById(R.id.signIn);
+        first_name = findViewById(R.id.email1);
+        last_name = findViewById(R.id.lastName2);
+        email_ = findViewById(R.id.email);
+        password_ = findViewById(R.id.password);
+        confirm_password = findViewById(R.id.password2);
+        error = findViewById(R.id.errorM);
+        phoneNumber_ = findViewById(R.id.phoneNumber);
     }
 
 
-    public void login(View view){
-        Intent intent=new Intent(Registration.this,Login.class);
+    public void login(View view) {
+        Intent intent = new Intent(Registration.this, Login.class);
         startActivity(intent);
         finish();
     }
+
     public void signUp(View view) {
         String firstNameValue = first_name.getText().toString();
         String lastNameValue = last_name.getText().toString();
@@ -72,6 +79,14 @@ public class Registration extends AppCompatActivity {
 
         String passwordValue = password_.getText().toString();
         String confirmPasswordValue = confirm_password.getText().toString();
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                flag = isInternetAvailable();
+            }
+        },200);
 
         if (firstNameValue.isEmpty() || lastNameValue.isEmpty() || emailValue.isEmpty()
                 || passwordValue.isEmpty() || confirmPasswordValue.isEmpty()) {
@@ -92,32 +107,41 @@ public class Registration extends AppCompatActivity {
 
                             } else {
 
-                                // Email does not exist, proceed to add user to Firestore
-                                DocumentReference userRef = db.collection("users").document();
-                                Map<String, Object> user = new HashMap<>();
+                                if (isInternetAvailable()) {
+                                    // Email does not exist, proceed to add user to Firestore
+                                    DocumentReference userRef = db.collection("users").document();
+                                    Map<String, Object> user = new HashMap<>();
 
-                                user.put("first_name", firstNameValue);
-                                user.put("last_name", lastNameValue);
-                                user.put("email", emailValue);
-                                user.put("password", passwordValue);
-                                user.put("phoneNumber", phoneValue);
+                                    user.put("first_name", firstNameValue);
+                                    user.put("last_name", lastNameValue);
+                                    user.put("email", emailValue);
+                                    user.put("password", passwordValue);
+                                    user.put("phoneNumber", phoneValue);
 
 
-                                userRef.set(user)
-                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                            @Override
-                                            public void onSuccess(Void aVoid) {
-                                                Toast.makeText(Registration.this, "Successfully Registered", Toast.LENGTH_SHORT).show();
-                                                finish();
-                                            }
-                                        })
-                                        .addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
-                                                Toast.makeText(Registration.this, "An error occurred while making the account", Toast.LENGTH_SHORT).show();
+                                    userRef.set(user)
+                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                @Override
+                                                public void onSuccess(Void aVoid) {
+                                                    Toast.makeText(Registration.this, "Successfully Registered", Toast.LENGTH_SHORT).show();
+                                                    Intent intent = new Intent(Registration.this,Login.class);
+                                                    startActivity(intent);
+                                                    finish();
+                                                }
+                                            })
+                                            .addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+                                                    Toast.makeText(Registration.this, "An error occurred while making the account", Toast.LENGTH_SHORT).show();
 
-                                            }
-                                        });
+                                                }
+                                            });
+
+
+                                } else {
+                                    Toast.makeText(Registration.this, "Check Internet Connection", Toast.LENGTH_SHORT).show();
+                                }
+
                             }
                         }
                     })
@@ -125,12 +149,20 @@ public class Registration extends AppCompatActivity {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             Toast.makeText(Registration.this, "An error occurred while checking the email", Toast.LENGTH_SHORT).show();
-                            Log.d("ERROR",e.toString());
+                            Log.d("ERROR", e.toString());
                         }
                     });
+
         }
     }
 
+    public boolean isInternetAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager != null ? connectivityManager.getActiveNetworkInfo() : null;
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+
+    }
 
 
 }

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -28,10 +29,14 @@ public class Reserved_Rooms extends AppCompatActivity implements RecyclerViewInt
     private SharedPreferences.Editor editor;
     private Gson gson = new Gson();
 
+    public static Activity fa;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reserved_rooms);
+
+        fa=this;
 
         setupViews();
         setupPrefs();
@@ -82,4 +87,6 @@ public class Reserved_Rooms extends AppCompatActivity implements RecyclerViewInt
         Intent intent = new Intent(Reserved_Rooms.this, Cancel_Reservation.class);
         startActivity(intent);
     }
+
+
 }

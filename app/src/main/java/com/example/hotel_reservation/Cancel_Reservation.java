@@ -46,6 +46,8 @@ public class Cancel_Reservation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cancel_reservation);
 
+
+
         setupViews();
         setupSharedPrefs();
 
@@ -92,6 +94,7 @@ public class Cancel_Reservation extends AppCompatActivity {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        Reserved_Rooms.fa.finish();
                         Toast.makeText(Cancel_Reservation.this, "Going back to MainMenu", Toast.LENGTH_SHORT).show();
                     }
                 },2000);
