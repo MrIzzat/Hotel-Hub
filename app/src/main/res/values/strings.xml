@@ -69,6 +69,8 @@
     <string name="password2">Password</string>
     <string name="or2">OR</string>
     <string name="log_in2">Log In</string>
+    <string name="no_hotels_available">NO HOTELS AVAILABLE</string>
+    <string name="check_rooms">Check Rooms</string>
     <array name="settings_options">
         <item>About Us</item>
     </array>

@@ -106,20 +106,10 @@ public class Login extends AppCompatActivity {
                                 if (chkRemember.isChecked()) {
                                     editor.putBoolean("isLoggedIn", true);
                                 }
-
+                                editor.putBoolean("LoggedIn", true);
                                 // Create JSON element with user information
                                 Gson gson = new Gson();
                                 String user = gson.toJson(d);
-//                                    try {
-//                                        userJson.put("firstName", document.getString("firstName"));
-//                                        userJson.put("lastName", document.getString("lastName"));
-//                                        userJson.put("email", email);
-//                                        userJson.put("phone", document.getString("phoneNumber"));
-//
-//                                    } catch (JSONException e) {
-//                                        e.printStackTrace();
-//                                    }
-
                                 // Store the JSON element as a string in shared preferences
                                 editor.putString("USER", user);
 
@@ -150,6 +140,9 @@ public class Login extends AppCompatActivity {
     public void signUpClk(View view) {
         Intent intent = new Intent(Login.this, Registration.class);
         startActivity(intent);
-        finish();
+    }
+    @Override
+    public void onBackPressed() {
+        finishAffinity();
     }
 }

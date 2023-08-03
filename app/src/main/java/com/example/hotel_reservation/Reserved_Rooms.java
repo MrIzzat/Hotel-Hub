@@ -29,14 +29,15 @@ public class Reserved_Rooms extends AppCompatActivity implements RecyclerViewInt
     private SharedPreferences.Editor editor;
     private Gson gson = new Gson();
 
-    public static Activity fa;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reserved_rooms);
 
-        fa=this;
+        if(MainMenu.LoggedUser==null)
+            finish();
 
         setupViews();
         setupPrefs();
@@ -77,15 +78,15 @@ public class Reserved_Rooms extends AppCompatActivity implements RecyclerViewInt
     @Override
     public void onItemClick(int pos) {
 
-        Room currRoom = reservedRooms.get(pos);
-
-        String roomString = gson.toJson(currRoom);
-
-        editor.putString("ROOM", roomString);
-        editor.commit();
-
-        Intent intent = new Intent(Reserved_Rooms.this, Cancel_Reservation.class);
-        startActivity(intent);
+//        Room currRoom = reservedRooms.get(pos);
+//
+//        String roomString = gson.toJson(currRoom);
+//
+//        editor.putString("ROOM", roomString);
+//        editor.commit();
+//
+//        Intent intent = new Intent(Reserved_Rooms.this, Cancel_Reservation.class);
+//        startActivity(intent);
     }
 
 

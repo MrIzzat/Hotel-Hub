@@ -34,6 +34,9 @@ public class RoomInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_room_info);
 
+        if(MainMenu.LoggedUser==null)
+            finish();
+
         setupViews();
         setupSharedPrefs();
 

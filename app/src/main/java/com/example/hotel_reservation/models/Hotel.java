@@ -11,16 +11,47 @@ public class Hotel {
 
     private String desc;
     private double rating;
+
+    private String address;
+    private String city;
+    private boolean hasRooms;
     public Hotel(){
 
     }
 
-    public Hotel(String name, String img,String desc,double rating) {
+    public Hotel(String name, String img, String desc, double rating, String address, String city,boolean hasRooms) {
         this.name = name;
-        this.rating=rating;
         this.img = img;
         this.desc = desc;
+        this.rating = rating;
+        this.address = address;
+        this.city = city;
+        this.hasRooms=hasRooms;
         rooms = new ArrayList<Room>();
+    }
+
+    public boolean isHasRooms() {
+        return hasRooms;
+    }
+
+    public void setHasRooms(boolean hasRooms) {
+        this.hasRooms = hasRooms;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public double getRating() {

@@ -22,11 +22,31 @@
 <!--            android:layout_height="wrap_content"-->
 <!--            android:text="Hotels"/>-->
 <!--    </LinearLayout>-->
-    <androidx.recyclerview.widget.RecyclerView
 
+    <include layout="@layout/mainmenu_header"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="60dp"
         android:id="@+id/recHotel"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/txtNoHotel"
+        android:layout_width="380dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="35dp"
+        android:gravity="center"
+        android:text="@string/no_hotels_available"
+        android:textColor="@color/black"
+        android:textSize="70dp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 
 
     <com.google.android.material.navigation.NavigationView

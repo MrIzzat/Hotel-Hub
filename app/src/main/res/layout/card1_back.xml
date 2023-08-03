@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:id="@+id/cardBack"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="8dp"
+    app:cardMaxElevation="10dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        android:background="@drawable/gradient_main_menu">
+
+
+        <TextView
+            android:id="@+id/txtHotelAddr"
+            android:layout_width="348dp"
+            android:layout_height="86dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="7dp"
+            android:padding="8dp"
+            android:text="@string/textview"
+            android:textColor="@color/end_main_menu_gradient"
+            android:textSize="20dp"
+            android:textStyle="bold"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnCheckRooms"
+            android:layout_width="wrap_content"
+            android:layout_height="65dp"
+            android:layout_marginStart="89dp"
+            android:layout_marginTop="273dp"
+            android:text="@string/check_rooms"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtHotelDesc"
+            android:layout_width="349dp"
+            android:layout_height="163dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="109dp"
+            android:padding="8dp"
+            android:text="@string/textview"
+            android:textColor="@color/end_main_menu_gradient"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

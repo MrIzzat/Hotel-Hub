@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/blue"
+    android:background="@drawable/gradient_main_menu"
     >
 
 
@@ -123,8 +123,8 @@
 
     <Button
         android:id="@+id/logIn"
-        android:layout_width="113dp"
-        android:layout_height="41dp"
+        android:layout_width="151dp"
+        android:layout_height="48dp"
         android:backgroundTint="#367D8F"
 
         android:bottomLeftRadius="15dp"
@@ -135,10 +135,9 @@
         android:topRightRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signIn"
-        app:layout_constraintVertical_bias="0.847" />
+        app:layout_constraintVertical_bias="0.692" />
 
     <ImageView
         android:id="@+id/imageView7"

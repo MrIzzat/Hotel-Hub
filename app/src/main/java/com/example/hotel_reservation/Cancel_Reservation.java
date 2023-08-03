@@ -94,7 +94,7 @@ public class Cancel_Reservation extends AppCompatActivity {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        Reserved_Rooms.fa.finish();
+                       // Reserved_Rooms.fa.finish();
                         Toast.makeText(Cancel_Reservation.this, "Going back to MainMenu", Toast.LENGTH_SHORT).show();
                     }
                 },2000);

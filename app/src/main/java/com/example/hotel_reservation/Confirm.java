@@ -108,6 +108,7 @@ public class Confirm extends AppCompatActivity {
                         @Override
                         public void run() {
                             Toast.makeText(Confirm.this, "Going Back to Main Menu", Toast.LENGTH_SHORT).show();
+                            progressControl.setProgress(100);
                         }
                     },2000);
 

@@ -24,6 +24,9 @@ public class Change_password extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_password);
 
+        if(MainMenu.LoggedUser==null)
+            finish();
+
         setupViews();
 
         userda = new UserDA();

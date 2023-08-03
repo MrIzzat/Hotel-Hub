@@ -41,6 +41,9 @@ public class Change_user_info extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_user_info);
 
+        if(MainMenu.LoggedUser==null)
+            finish();
+
         userda=new UserDA();
 
         setupViews();

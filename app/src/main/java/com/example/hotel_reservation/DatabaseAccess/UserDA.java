@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.example.hotel_reservation.MainMenu;
+import com.example.hotel_reservation.models.Reservation;
 import com.example.hotel_reservation.models.User;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -17,6 +18,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -111,5 +113,28 @@ public class UserDA {
                     }
                 });
 
+    }
+
+    public void deleteUser(Context C,User u){
+        ReservationDA resda = new ReservationDA();
+        resda.removeAllReservationsForUser(C,u);
+        db.collection("users")
+                .whereEqualTo("email", u.getEmail())
+                .get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        if (!queryDocumentSnapshots.isEmpty()) {
+                                DocumentReference doc = queryDocumentSnapshots.getDocuments().get(0).getReference();
+                                doc.delete();
+
+
+                        }
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(C, "Could not find user", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }

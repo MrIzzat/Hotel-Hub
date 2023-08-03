@@ -1,66 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.wajahatkarim3.easyflipview.EasyFlipView xmlns:android="http://schemas.android.com/apk/res/android"
+
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/FlipHotel"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
-    app:cardBackgroundColor="@color/white"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="8dp"
-    app:cardMaxElevation="10dp"
-    app:cardPreventCornerOverlap="true"
-    app:cardUseCompatPadding="true">
+    app:autoFlipBack="false"
+    app:flipDuration="400"
+    app:flipEnabled="true"
+    app:flipFrom="right"
+    app:flipOnTouch="false"
+    app:flipType="horizontal">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="351dp"
-        android:background="@drawable/gradient_main_menu">
+    <!-- Back Layout Goes Here -->
+    <include layout="@layout/card1_back" />
 
-        <TextView
+    <!-- Front Layout Goes Here -->
+    <include layout="@layout/card1_front" />
 
-            android:id="@+id/txthotelName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="@string/caramel_hotel"
-            android:textColor="@color/start_main_menu_gradient"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.069"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgHotel" />
-
-        <ImageView
-            android:id="@+id/imgHotel"
-            android:layout_width="369dp"
-            android:layout_height="266dp"
-            android:layout_marginBottom="39dp"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            app:layout_constraintBottom_toTopOf="@+id/txthotelName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/caramel_hotel" />
-
-        <RatingBar
-
-            android:id="@+id/ratingHotel"
-            style="?android:attr/ratingBarStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
-            android:layout_marginBottom="28dp"
-            android:isIndicator="true"
-            android:numStars="5"
-            android:scaleX="2"
-            android:scaleY="2"
-            android:stepSize="0.5"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.cardview.widget.CardView>
+</com.wajahatkarim3.easyflipview.EasyFlipView>

@@ -8,7 +8,8 @@ public class SettingsItem {
 
     public static SettingsItem[] setting_items ={
             new SettingsItem("Reserved Rooms", "drawable://" + R.drawable.room_list),
-            new SettingsItem("About Us", "drawable://" + R.drawable.about_us)
+            new SettingsItem("About Us", "drawable://" + R.drawable.about_us),
+            new SettingsItem("Delete Acount","drawable://"+R.drawable.delete)
     };
 
     public SettingsItem(String name, String img) {

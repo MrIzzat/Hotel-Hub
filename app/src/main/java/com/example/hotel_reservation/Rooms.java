@@ -24,7 +24,6 @@ public class Rooms extends AppCompatActivity implements RecyclerViewInterface {
 
     private RecyclerView recRooms;
     private TextView txtNoRooms;
-    private TextView txtHotelDesc;
     private Hotel currHotel;
     private ArrayList<Room> rooms = new ArrayList<Room>();
 
@@ -38,6 +37,9 @@ public class Rooms extends AppCompatActivity implements RecyclerViewInterface {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rooms);
+
+        if(MainMenu.LoggedUser==null)
+            finish();
 
         setupSharedPrefs();
 
@@ -55,7 +57,6 @@ public class Rooms extends AppCompatActivity implements RecyclerViewInterface {
 
         setupViews();
 
-        txtHotelDesc.setText(currHotel.getDesc());
         addRooms();
 
     }
@@ -101,7 +102,6 @@ public class Rooms extends AppCompatActivity implements RecyclerViewInterface {
     private void setupViews() {
         recRooms = findViewById(R.id.recRooms);
         txtNoRooms = findViewById(R.id.txtNoRooom);
-        txtHotelDesc = findViewById(R.id.txtHotelDesc);
 
     }
 
